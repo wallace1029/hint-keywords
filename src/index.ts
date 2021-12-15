@@ -1,7 +1,7 @@
 interface HintKeywordsConfig {
-  targetLabel: string
-  customLabel: string
-  color: string
+  targetLabel?: string
+  customLabel?: string
+  color?: string
 }
 
 const hintKeywords = (

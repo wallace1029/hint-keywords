@@ -1,20 +1,17 @@
 // rollup.config.js
-import typescript from 'rollup-plugin-typescript2'
-import babel from 'rollup-plugin-babel'
+import typescript from '@rollup/plugin-typescript'
 
 export default {
-  input: 'src/main.ts',
+  input: 'src/index.ts',
   output: [
     {
-      file: 'dist/index.js',
-      format: 'esm'
+      file: 'lib/index.js',
+      format: 'es'
     }
   ],
   plugins: [
-    typescript(),
-    babel({
-      exclude: 'mode_modules/',
-      extensions: ['.js', '.ts']
+    typescript({
+      tsconfig: './tsconfig.json'
     })
   ]
 }

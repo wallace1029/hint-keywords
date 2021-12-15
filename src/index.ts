@@ -29,14 +29,18 @@ const hintKeywords = (
     const newLabel = item[defaultConfig.targetLabel].toUpperCase()
     const newKeywords = keywords.toUpperCase()
     const index = newLabel.indexOf(newKeywords)
-    const originKeywords = item[defaultConfig.targetLabel].substring(
-      index,
-      index + keywords.length
-    )
-    item[defaultConfig.customLabel] = item[defaultConfig.targetLabel].replace(
-      originKeywords,
-      `<span style="color: ${defaultConfig.color}">${originKeywords}</span>`
-    )
+    if (index > 0) {
+      const originKeywords = item[defaultConfig.targetLabel].substring(
+        index,
+        index + keywords.length
+      )
+      item[defaultConfig.customLabel] = item[defaultConfig.targetLabel].replace(
+        originKeywords,
+        `<span style="color: ${defaultConfig.color}">${originKeywords}</span>`
+      )
+    } else {
+      item[defaultConfig.customLabel] = item[defaultConfig.targetLabel]
+    }
   })
   return list
 }

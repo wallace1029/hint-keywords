@@ -29,7 +29,7 @@ const hintKeywords = (
     const newLabel = item[defaultConfig.targetLabel].toUpperCase()
     const newKeywords = keywords.toUpperCase()
     const index = newLabel.indexOf(newKeywords)
-    if (index > 0) {
+    if (index !== -1) {
       const originKeywords = item[defaultConfig.targetLabel].substring(
         index,
         index + keywords.length
